@@ -1,0 +1,82 @@
+{%extends "base.html"%}
+{%block content%}
+
+<nav class='blue'>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo center">  Timeline</a>
+    <!-- <a href="" class="brand-logo left">  EVENT</a> -->
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+    </ul>
+     </div>
+</nav>
+
+
+
+
+<!--  <div class="collection"> -->
+    
+
+
+
+{%for summary in summary_list%} 
+
+  <div class="col-sm-10 m7 col-sm-offset-1">
+    <h2 class="header">{{summary.title}}</h2>
+    <div class="card small horizontal">
+      <div class="card-image">
+        <img src="{{summary.thumbnail.source}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>{{summary.extract}}.</p>
+        </div>
+        <div class="card-action">
+          <p>{{summary.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+          
+
+{% endfor%}
+
+
+
+
+
+
+
+
+<!-- {%for object in object_list%} -->
+
+
+         
+<!-- 
+
+ <div class="col-sm-8 col-sm-offset-1 m7">
+    <h2 class="header">{{object}}</h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="{{summary.thumbnail.source}}">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>{{summary.extract}}</p>
+        </div>
+        <div class="card-action">
+          <a href="{{object.url}}">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ -->
+
+<!-- {% endfor%} -->
+
+<!-- </div> -->
+
+
+{%endblock content%}

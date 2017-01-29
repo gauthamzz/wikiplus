@@ -1,0 +1,43 @@
+{%extends "base.html"%}
+{% block head_title %} {{instance.title}}{% endblock head_title%}
+
+
+{%block content%}
+
+<nav class='blue'>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo left">  EVENT</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+    </ul>
+
+  </div>
+</nav>
+
+<div class ="col-sm-2 col-sm-offset-0">
+<div class="card-panel hoverable grey lighten-4 ">
+<h5>HINT</h5>
+{{hint1}}
+</div>
+</div>
+
+
+
+<div class ="col-sm-8 col-sm-offset-0">
+<div class="card-panel hoverable grey lighten-4 ">
+<h5>{{instance}}</h5>
+{{imagelink|safe}}
+
+<form method='POST' action=''>{% csrf_token %}
+{{ form.as_p }}
+<input type='submit' class="waves-effect waves-light btn" value='Submit Answer'/>
+<a href='/'  class="waves-effect waves-light btn" role="button">back</a>
+<a href='/website/rank'  class="waves-effect waves-light btn" role="button">rank</a>
+</form>
+</div>
+</div>
+
+
+
+
+{%endblock content%}
