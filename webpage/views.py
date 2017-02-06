@@ -2,6 +2,7 @@ from django.shortcuts import render
 import requests
 from django.http import HttpResponseRedirect
 
+import datetime
 from .models import Article
 # Create your views here.
 
@@ -35,10 +36,24 @@ def RelatedTimeline(request,Topic):
 
 	query = request.GET.get("q")
 	if query :
-		return HttpResponseRedirect("/webpage/"+query)
+		return HttpResponseRedirect("/webpage/related/"+query)
 
 
 	context={
 	"Data" : RelatedListData
 	}
 	return render(request,"relatedtimeline.html",context)
+
+def Today(request):
+	List= requests.get('https://en.wikipedia.org/api/rest_v1/feed/featured/'+ datetime.date.today().strftime ("%Y/%m/%d"))
+	ListData = List.json()
+
+	query = request.GET.get("q")
+	if query :
+		return HttpResponseRedirect("/webpage/related/"+query)
+
+
+	context={
+	"Data" : ListData
+	}
+	return render(request,"today.html",context)

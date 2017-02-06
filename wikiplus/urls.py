@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^webpage/',include("webpage.url",namespace="webpage")),
     url(r'^accounts/', include('registration.backends.simple.urls')),
-    url('^$', lambda x: redirect('/webpage/'))
+    url('^$', lambda x: redirect('/webpage/now/'))
 ]
 if settings.DEBUG==True:
     urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
