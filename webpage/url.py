@@ -11,7 +11,7 @@ from .views import (
 
 urlpatterns = [
 	url(r'^$', Timeline,name="Timeline"),
-	url(r'related/(?P<Topic>[A-Za-z0-9]+)$',RelatedTimeline, name='RelatedTimeline'),
+	url(r'related/(?P<Topic>[^/]+)$',RelatedTimeline, name='RelatedTimeline'),
 	url(r'now/$',Today, name='Today'),
 	# url(r'^rank$', rank,name="ranks"),
 	# url(r'^$',index,name="index"),
